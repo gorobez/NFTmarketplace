@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HomePage</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20230706222205">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Стилі для body preloader -->
+	<style>
+		.lock body {
+			overflow: hidden;
+			touch-action: none;
+			overscroll-behavior: none;
+		}
+
+		.loading body {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		.loaded body {
+			transition: opacity 0.5s ease 0s;
+			opacity: 1;
+			visibility: visible;
+		}
+
+		@media (max-width: 600px) {
+			.loaded body {
+				transition: opacity 0.5s ease 1.7s;
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	</style>
+	<!-- Стилі для прелоадера -->
+	<style>
+		* {
+			padding: 0px;
+			margin: 0px;
+			border: 0px;
+		}
+
+		*,
+		*:before,
+		*:after {
+			box-sizing: border-box;
+		}
+
+		/* Головний блок */
+		.fls-preloader {
+			pointer-events: none;
+			z-index: -1;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 5;
+		}
+
+		/* Блок з елементами */
+		.fls-preloader__body {
+			padding: 0.93rem;
+			max-width: 31.25rem;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.fls-preloader__logo {
+			width: 160px;
+			height: 190px;
+			opacity: 0;
+			animation: play 2s ease infinite alternate;
+		}
+
+		@keyframes play {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header data-scroll="30" class="header">
+			<div class="header__container">
+				<a href="#" class="header__logo"><img src="img/logo.svg" alt="logo">Qeeb</a>
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="#" data-goto-speed="1000" data-goto-header data-goto=".main" class="menu__link">Explore</a></li>
+							<li class="menu__item"><a href="#" data-goto-speed="1000" data-goto-header data-goto=".colections" class="menu__link">Collections</a></li>
+							<li class="menu__item"><a href="#" data-goto-speed="1000" data-goto-header data-goto=".tranding" class="menu__link">Creators</a></li>
+							<li class="menu__item"><a href="#" data-goto-speed="1000" data-goto-header data-goto=".insights" class="menu__link">Blog</a></li>
+						</ul>
+					</nav>
+				</div>
+				<a data-da=".menu__body, 767.98" href="#" data-ripple class="header__button button">Connect Wallet</a>
+			</div>
+		</header>
+		<main class="page">
+			<section data-watch class="page__main main">
+				<div class="main__container">
+					<div class="main__content">
+						<h2 class="main__subtitle">NFT Marketplace</h2>
+						<h1 class="main__title">Collect rare digital artworks</h1>
+						<div class="main__actions">
+							<button type="button" data-ripple class="main__button button">Explore</button>
+							<div data-da=".main__mobile-advantages, 768" class="main__artists">
+								<div class="main__artist">
+									<picture><source srcset="img/artists/artist_1.webp" type="image/webp"><img src="img/artists/artist_1.jpg" alt="image"></picture>
+								</div>
+								<div class="main__artist">
+									<picture><source srcset="img/artists/artist_2.webp" type="image/webp"><img src="img/artists/artist_2.jpg" alt="image"></picture>
+								</div>
+								<div class="main__artist">
+									<picture><source srcset="img/artists/artist_3.webp" type="image/webp"><img src="img/artists/artist_3.jpg" alt="image"></picture>
+								</div>
+								<div class="main__decor-artist">
+									<svg class="svg" width="146" height="120" viewBox="0 0 146 120" fill="#fff">
+										<use class="arrow" xlink:href="img/icons/icons.svg#arrow_main"></use>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div data-da=".main__mobile-advantages, 768" class="main__advantages advantages">
+							<div class="advantages__item">
+								<div class="advantages__value">50k</div>
+								<div class="advantages__text">Artwork</div>
+							</div>
+							<div class="advantages__item">
+								<div class="advantages__value">35k</div>
+								<div class="advantages__text">Auction</div>
+							</div>
+							<div class="advantages__item">
+								<div class="advantages__value">23k+</div>
+								<div class="advantages__text">Artist</div>
+							</div>
+						</div>
+					</div>
+					<div class="main__decor">
+						<div class="main__image">
+							<picture><source srcset="img/main_image.webp" type="image/webp"><img src="img/main_image.jpg" alt=""></picture>
+						</div>
+						<a href="#" class="main__circle circle">
+							<p></p>
+							<div class="circle__decor _icon-play"></div>
+						</a>
+					</div>
+					<div class="main__mobile-advantages">
+					</div>
+				</div>
+			</section>
+
+			<section data-watch id="categories" class="page__categories categories">
+				<div class="categories__container">
+					<div class="categories__header">
+						<h2 class="categories__title title">popular categories</h2>
+					</div>
+					<div data-da=".categories__header, 1730" class="categories__navigation">
+						<button type="button" class="categories__button _icon-arrow button-prev categories__button--prev"></button>
+						<button type="button" class="categories__button _icon-arrow button-next categories__button--next"></button>
+					</div>
+					<!-- Оболочка слайдера -->
+					<div class="categories__slider swiper">
+						<!-- Двигающееся часть слайдера -->
+						<div class="categories__wrapper swiper-wrapper">
+							<!-- Слайд -->
+							<div class="categories__slide swiper-slide">
+								<a href="#categories" class="categories__item item-categories">
+									<div class="item-categories__image">
+										<picture><source srcset="img/categories/categoria_1.webp" type="image/webp"><img src="img/categories/categoria_1.jpg" alt="categoria"></picture>
+									</div>
+									<h5 class="item-categories__title">Games</h5>
+								</a>
+							</div>
+							<div class="categories__slide swiper-slide">
+								<a href="#categories" class="categories__item item-categories">
+									<div class="item-categories__image">
+										<picture><source srcset="img/categories/categoria_2.webp" type="image/webp"><img src="img/categories/categoria_2.jpg" alt="categoria"></picture>
+									</div>
+									<h5 class="item-categories__title">Sports</h5>
+								</a>
+							</div>
+							<div class="categories__slide swiper-slide">
+								<a href="#categories" class="categories__item item-categories">
+									<div class="item-categories__image">
+										<picture><source srcset="img/categories/categoria_3.webp" type="image/webp"><img src="img/categories/categoria_3.jpg" alt="categoria"></picture>
+									</div>
+									<h5 class="item-categories__title">Metaverse</h5>
+								</a>
+							</div>
+							<div class="categories__slide swiper-slide">
+								<a href="#categories" class="categories__item item-categories">
+									<div class="item-categories__image">
+										<picture><source srcset="img/categories/categoria_4.webp" type="image/webp"><img src="img/categories/categoria_4.jpg" alt="categoria"></picture>
+									</div>
+									<h5 class="item-categories__title">Art</h5>
+								</a>
+							</div>
+							<div class="categories__slide swiper-slide">
+								<a href="#categories" class="categories__item item-categories">
+									<div class="item-categories__image">
+										<picture><source srcset="img/categories/categoria_5.webp" type="image/webp"><img src="img/categories/categoria_5.jpg" alt="categoria"></picture>
+									</div>
+									<h5 class="item-categories__title">Music</h5>
+								</a>
+							</div>
+							<div class="categories__slide swiper-slide">
+								<a href="#categories" class="categories__item item-categories">
+									<div class="item-categories__image">
+										<picture><source srcset="img/categories/categoria_7.webp" type="image/webp"><img src="img/categories/categoria_7.jpg" alt="categoria"></picture>
+									</div>
+									<h5 class="item-categories__title">Photography</h5>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section data-watch id="colections" class="page__colections colections">
+				<div class="colections__container">
+					<div data-tabs class="colections__tabs tabs-colections">
+						<div class="tabs-colections__header">
+							<h2 class="tabs-colections__title title">top collections</h2>
+							<nav data-tabs-titles class="tabs-colections__navigation">
+								<button type="button" class="tabs-colections__button _tab-active">7 Days</button>
+								<button type="button" class="tabs-colections__button">30 Days</button>
+							</nav>
+						</div>
+						<div data-tabs-body class="tabs-colections__content">
+							<div class="tabs-colections__body">
+								<div class="tabs-colections__items">
+									<div class="tabs-colections__column">
+										<a href="#colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_1.webp" type="image/webp"><img src="img/colections/colection_1.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">1</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">NFT Worlds</h5>
+													<div class="item-tabs__subtitle">Floor: 0.80ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_6.webp" type="image/webp"><img src="img/colections/colection_6.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">2</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Etherpilots</h5>
+													<div class="item-tabs__subtitle">Floor: 0.05ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_5.webp" type="image/webp"><img src="img/colections/colection_5.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">3</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Mineblowings</h5>
+													<div class="item-tabs__subtitle">Floor: 0.07ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_3.webp" type="image/webp"><img src="img/colections/colection_3.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">4</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Super Worlds</h5>
+													<div class="item-tabs__subtitle">Floor: 0.70ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="tabs-colections__column">
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_5.webp" type="image/webp"><img src="img/colections/colection_5.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">5</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Kive Core</h5>
+													<div class="item-tabs__subtitle">Floor: 0.06ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_4.webp" type="image/webp"><img src="img/colections/colection_4.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">6</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">NFT Flow</h5>
+													<div class="item-tabs__subtitle">Floor: 0.50ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_3.webp" type="image/webp"><img src="img/colections/colection_3.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">7</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Bidether</h5>
+													<div class="item-tabs__subtitle">Floor: 0.10ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_2.webp" type="image/webp"><img src="img/colections/colection_2.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">8</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Varipack</h5>
+													<div class="item-tabs__subtitle">Floor: 0.90ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="tabs-colections__column">
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_6.webp" type="image/webp"><img src="img/colections/colection_6.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">9</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Nether</h5>
+													<div class="item-tabs__subtitle">Floor: 0.08ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_3.webp" type="image/webp"><img src="img/colections/colection_3.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">10</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Moonther</h5>
+													<div class="item-tabs__subtitle">Floor: 0.10ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_4.webp" type="image/webp"><img src="img/colections/colection_4.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">11</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Proof Corn</h5>
+													<div class="item-tabs__subtitle">Floor: 0.90ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_1.webp" type="image/webp"><img src="img/colections/colection_1.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">12</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Parallel</h5>
+													<div class="item-tabs__subtitle">Floor: 0.08ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="tabs-colections__body">
+								<div class="tabs-colections__items">
+									<div class="tabs-colections__column">
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_4.webp" type="image/webp"><img src="img/colections/colection_4.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">1</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Kive Core</h5>
+													<div class="item-tabs__subtitle">Floor: 0.06ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_3.webp" type="image/webp"><img src="img/colections/colection_3.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">2</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">NFT Flow</h5>
+													<div class="item-tabs__subtitle">Floor: 0.50ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_5.webp" type="image/webp"><img src="img/colections/colection_5.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">3</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Bidether</h5>
+													<div class="item-tabs__subtitle">Floor: 0.10ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="tabs-colections__column">
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_6.webp" type="image/webp"><img src="img/colections/colection_6.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">4</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Varipack</h5>
+													<div class="item-tabs__subtitle">Floor: 0.90ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_4.webp" type="image/webp"><img src="img/colections/colection_4.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">5</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Nether</h5>
+													<div class="item-tabs__subtitle">Floor: 0.08ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_3.webp" type="image/webp"><img src="img/colections/colection_3.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">6</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Moonther</h5>
+													<div class="item-tabs__subtitle">Floor: 0.10ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="tabs-colections__column">
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_2.webp" type="image/webp"><img src="img/colections/colection_2.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">7</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Varipack</h5>
+													<div class="item-tabs__subtitle">Floor: 0.90ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_5.webp" type="image/webp"><img src="img/colections/colection_5.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">8</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Nether</h5>
+													<div class="item-tabs__subtitle">Floor: 0.08ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+										<a href="colections" class="tabs-colections__item item-tabs">
+											<div class="item-tabs__box-image">
+												<div class="item-tabs__image">
+													<picture><source srcset="img/colections/colection_1.webp" type="image/webp"><img src="img/colections/colection_1.jpg" alt="image"></picture>
+												</div>
+												<div class="item-tabs__number">9</div>
+											</div>
+											<div class="item-tabs__body">
+												<div class="item-tabs__content">
+													<h5 class="item-tabs__title">Moonther</h5>
+													<div class="item-tabs__subtitle">Floor: 0.10ETH</div>
+												</div>
+												<div class="item-tabs__rate rate">
+													<div class="rate__eth">5.8k ETH</div>
+													<div class="rate__dollar">$8.4M</div>
+													<div class="rate__procent">+294.7%</div>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button type="button" data-ripple class="colections__button button">See All Collection</button>
+				</div>
+			</section>
+
+			<section data-watch id="tranding" class="page__tranding tranding">
+				<div class="tranding__container">
+					<div class="tranding__header">
+						<h2 class="tranding__title title">Tranding nfts</h2>
+					</div>
+					<div data-da=".tranding__header, 1730" class="tranding__navigation">
+						<button type="button" class="tranding__button _icon-arrow button-prev tranding__button--prev"></button>
+						<button type="button" class="tranding__button _icon-arrow button-next tranding__button--next"></button>
+					</div>
+					<div class="tranding__slider swiper">
+						<div class="tranding__wrapper swiper-wrapper">
+							<div class="tranding__slide swiper-slide">
+								<a href="#tranding" class="tranding__item item-tranding">
+									<div class="item-tranding__image-ibg">
+										<picture><source srcset="img/tranding/tranding_1.webp" type="image/webp"><img src="img/tranding/tranding_1.jpg" alt="img"></picture>
+									</div>
+									<div class="item-tranding__content">
+										<div class="item-tranding__body">
+											<h5 class="item-tranding__title">Rare Crypto</h5>
+											<div class="item-tranding__subtitle">#QA5200 The Kive</div>
+										</div>
+										<div class="item-tranding__footer footer-tranding">
+											<div class="footer-tranding__price">
+												<div class="footer-tranding__label">Price</div>
+												<div class="footer-tranding__value">0.03 ETH</div>
+											</div>
+											<div class="footer-tranding__highest">
+												<div class="footer-tranding__label">Highest Bid</div>
+												<div class="footer-tranding__value">0.07 ETH</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="tranding__slide swiper-slide">
+								<a href="#tranding" class="tranding__item item-tranding">
+									<div class="item-tranding__image-ibg">
+										<picture><source srcset="img/tranding/tranding_2.webp" type="image/webp"><img src="img/tranding/tranding_2.jpg" alt="img"></picture>
+									</div>
+									<div class="item-tranding__content">
+										<div class="item-tranding__body">
+											<h5 class="item-tranding__title">Kive Boy</h5>
+											<div class="item-tranding__subtitle">#QA5200 The Kive</div>
+										</div>
+										<div class="item-tranding__footer footer-tranding">
+											<div class="footer-tranding__price">
+												<div class="footer-tranding__label">Price</div>
+												<div class="footer-tranding__value">0.03 ETH</div>
+											</div>
+											<div class="footer-tranding__highest">
+												<div class="footer-tranding__label">Highest Bid</div>
+												<div class="footer-tranding__value">0.07 ETH</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="tranding__slide swiper-slide">
+								<a href="#tranding" class="tranding__item item-tranding">
+									<div class="item-tranding__image-ibg">
+										<picture><source srcset="img/tranding/tranding_3.webp" type="image/webp"><img src="img/tranding/tranding_3.jpg" alt="img"></picture>
+									</div>
+									<div class="item-tranding__content">
+										<div class="item-tranding__body">
+											<h5 class="item-tranding__title">Kive Boy</h5>
+											<div class="item-tranding__subtitle">#QA5200 The Kive</div>
+										</div>
+										<div class="item-tranding__footer footer-tranding">
+											<div class="footer-tranding__price">
+												<div class="footer-tranding__label">Price</div>
+												<div class="footer-tranding__value">0.03 ETH</div>
+											</div>
+											<div class="footer-tranding__highest">
+												<div class="footer-tranding__label">Highest Bid</div>
+												<div class="footer-tranding__value">0.07 ETH</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="tranding__slide swiper-slide">
+								<a href="#tranding" class="tranding__item item-tranding">
+									<div class="item-tranding__image-ibg">
+										<picture><source srcset="img/tranding/tranding_4.webp" type="image/webp"><img src="img/tranding/tranding_4.jpg" alt="img"></picture>
+									</div>
+									<div class="item-tranding__content">
+										<div class="item-tranding__body">
+											<h5 class="item-tranding__title">Kive Boy</h5>
+											<div class="item-tranding__subtitle">#QA5200 The Kive</div>
+										</div>
+										<div class="item-tranding__footer footer-tranding">
+											<div class="footer-tranding__price">
+												<div class="footer-tranding__label">Price</div>
+												<div class="footer-tranding__value">0.03 ETH</div>
+											</div>
+											<div class="footer-tranding__highest">
+												<div class="footer-tranding__label">Highest Bid</div>
+												<div class="footer-tranding__value">0.07 ETH</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						<!-- Если нужна пагинация -->
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+			</section>
+
+			<section data-watch class="page__insights insights" id="insights">
+				<div class="insights__container">
+					<h2 class="insights__title title">Insights</h2>
+					<div class="insights__items">
+						<article class="insights__item item-insights">
+							<a href="#insights" class="item-insights__image-ibg">
+								<picture><source srcset="img/blog/blog_1.webp" type="image/webp"><img src="img/blog/blog_1.jpg" alt="image"></picture>
+							</a>
+							<div class="item-insights__body">
+								<div class="item-insights__description">
+									<a href="#insights" class="item-insights__categories">TECHNOLOGY</a>
+									<div class="item-insights__label">John Doe • 19 Jan 2022</div>
+								</div>
+								<h5 class="item-insights__title">Gesture for the people and the culture</h5>
+								<a data-ripple href="#insights" class="item-insights__button button button--transparent _icon-arrow"><span>Read
+										More</span></a>
+							</div>
+						</article>
+						<article class="insights__item item-insights">
+							<a href="#insights" class="item-insights__image-ibg">
+								<picture><source srcset="img/blog/blog_2.webp" type="image/webp"><img src="img/blog/blog_2.jpg" alt="image"></picture>
+							</a>
+							<div class="item-insights__body">
+								<div class="item-insights__description">
+									<a href="#insights" class="item-insights__categories">Webiner</a>
+									<div class="item-insights__label">John Doe • 19 Jan 2022</div>
+								</div>
+								<h5 class="item-insights__title">Mostly metaverse is only as good as its tools and it is
+									totally true.</h5>
+								<a data-ripple href="#insights" class="item-insights__button button button--transparent _icon-arrow"><span>Read
+										More</span></a>
+							</div>
+						</article>
+						<article class="insights__item item-insights">
+							<a href="#insights" class="item-insights__image-ibg">
+								<picture><source srcset="img/blog/blog_3.webp" type="image/webp"><img src="img/blog/blog_3.jpg" alt="image"></picture>
+							</a>
+							<div class="item-insights__body">
+								<div class="item-insights__description">
+									<a href="#insights" class="item-insights__categories">Crypto Currency</a>
+									<div class="item-insights__label">John Doe • 19 Jan 2022</div>
+								</div>
+								<h5 class="item-insights__title">Crypto business is only as good as its tools and it is
+									totally true.</h5>
+								<a data-ripple href="#insights" class="item-insights__button button button--transparent _icon-arrow"><span>Read
+										More</span></a>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<div class="page__download download">
+				<div class="download__container">
+					<div class="download__content">Download Qeeb app to track your NFT portfolio and discover more</div>
+					<div class="download__actions">
+						<button data-ripple type="button" class="download__button button button--gray _icon-apple"><span>App Store</span></button>
+						<button data-ripple type="button" class="download__button button _icon-android"><span>Google
+								Play</span></button>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__top top-footer">
+				<div class="top-footer__container">
+					<div class="top-footer__body">
+						<a href="#" class="top-footer__logo"><img src="img/logo.svg" alt="logo">Qeeb</a>
+						<div data-spollers="768,max" class="top-footer__menu menu-footer">
+							<div class="menu-footer__column">
+								<button type="button" data-spoller class="menu-footer__label">Quick Links</button>
+								<nav class="menu-footer-nav">
+									<ul class="menu-footer__list">
+										<li class="menu-footer__item"><a href="#" class="menu-footer__link">About Us</a></li>
+										<li class="menu-footer__item"><a href="#" class="menu-footer__link">Services</a></li>
+										<li class="menu-footer__item"><a href="#" class="menu-footer__link">API</a></li>
+										<li class="menu-footer__item"><a href="#" class="menu-footer__link">Become a Partner</a>
+										</li>
+										<li class="menu-footer__item"><a href="#" class="menu-footer__link">Branding</a></li>
+										<li class="menu-footer__item"><a href="#" class="menu-footer__link">Career</a></li>
+									</ul>
+								</nav>
+							</div>
+							<div class="menu-footer__column">
+								<button type="button" data-spoller class="menu-footer__label">Marketplace</button>
+								<nav class="menu-footer-nav">
+									<ul class="menu-footer__list">
+										<li class="menu-footer__item"><a href="#" class="menu-footer__link">Explore</a></li>
+										<li class="menu-footer__item"><a href="#" class="menu-footer__link">How it works</a>
+										</li>
+										<li class="menu-footer__item"><a href="#" class="menu-footer__link">Insights</a></li>
+										<li class="menu-footer__item"><a href="#" class="menu-footer__link">Help Center</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+						<div class="top-footer__subscribe subscribe-footer">
+							<div class="subscribe-footer__label">SIGN UP TO OUR NEWSLETTER</div>
+							<form action="#" class="subscribe-footer__form form-footer">
+								<div class="form-footer__line">
+									<input class="form-footer__input" id="mail" required autocomplete="off" type="email" name="e-mail" placeholder="youremail@gmail.com">
+									<button type="submit" class="form-footer__button _icon-send"></button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer__bottom bottom-footer">
+				<div class="bottom-footer__container">
+					<div class="bottom-footer__column">Qeeb 2022. All Rights Reserved</div>
+					<div class="bottom-footer__column">Terms & Conditions Privacy</div>
+					<div class="bottom-footer__column">
+						<div class="bottom-footer__social social-footer">
+							<ul class="social-footer__list">
+								<li class="social-footer__item"><a href="#" class="social-footer__link _icon-twwiter"></a></li>
+								<li class="social-footer__item"><a href="#" class="social-footer__link _icon-facebook"></a></li>
+								<li class="social-footer__item"><a href="#" class="social-footer__link _icon-insta"></a></li>
+								<li class="social-footer__item"><a href="#" class="social-footer__link _icon-in"></a></li>
+								<li class="social-footer__item"><a href="#" class="social-footer__link _icon-tiktok"></a></li>
+								<li class="social-footer__item"><a href="#" class="social-footer__link _icon-yotube"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<div id="fls-preloader">
+
+		<!-- Скріпт прелоадера -->
+		<script>
+			function preloader() {
+				const preloaderImages = document.querySelector('[data-preloader]') ? document.querySelectorAll('[data-preloader] img') : document.querySelectorAll('img');
+				const preloaderContainer = document.querySelector('#fls-preloader');
+				if (preloaderImages.length) {
+					const preloaderTemplate = `
+					<div class="fls-preloader">
+						<div class="fls-preloader__body">
+							<img class="fls-preloader__logo" src="img/logo.svg" alt="">
+							// <div class="fls-preloader__counter">0%</div>
+							// <div class="fls-preloader__line"><span></span></div>
+						</div>
+					</div>`;
+					document.querySelector('html').insertAdjacentHTML("beforeend", preloaderTemplate);
+
+					const
+						preloader = document.querySelector('.fls-preloader'),
+						showPecentLoad = document.querySelector('.fls-preloader__counter'),
+						showLineLoad = document.querySelector('.fls-preloader__line span'),
+						htmlDocument = document.documentElement;
+
+					let imagesLoadedCount = counter = progress = 0;
+
+					htmlDocument.classList.add('loading');
+					htmlDocument.classList.add('lock');
+
+					preloaderImages.forEach(preloaderImage => {
+						const imgClone = document.createElement('img');
+						if (imgClone) {
+							imgClone.onload = imageLoaded;
+							imgClone.onerror = imageLoaded;
+							preloaderImage.dataset.src ? imgClone.src = preloaderImage.dataset.src : imgClone.src = preloaderImage.src;
+						}
+					});
+
+					function setValueProgress(progress) {
+						showPecentLoad ? showPecentLoad.innerText = `${progress}%` : null;
+						showLineLoad ? showLineLoad.style.width = `${progress}%` : null;
+					}
+					showPecentLoad ? setValueProgress(progress) : null;
+
+					function imageLoaded() {
+						imagesLoadedCount++;
+						progress = Math.round((100 / preloaderImages.length) * imagesLoadedCount);
+						const intervalId = setInterval(() => {
+							counter >= progress ? clearInterval(intervalId) : setValueProgress(++counter);
+							counter >= 100 ? addLoadedClass() : null;
+						}, 10);
+					}
+
+					function addLoadedClass() {
+						htmlDocument.classList.add('loaded');
+						htmlDocument.classList.remove('lock');
+						htmlDocument.classList.remove('loading');
+						setInterval(() => {
+							preloader.remove();
+							preloaderContainer.remove();
+						}, 500);
+					}
+				} else {
+					preloaderContainer.remove();
+				}
+			}
+			preloader();
+		</script>
+	</div>
+	<script src="js/app.min.js?_v=20230706222205"></script>
+</body>
+
+</html>
